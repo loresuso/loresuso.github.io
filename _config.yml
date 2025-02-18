@@ -20,18 +20,26 @@
 
 title: loresuso's corner of the internet
 email: susinilorenzo1@gmail.com
+url: "https://loresuso.github.io"
 description: >- # this means to ignore newlines unti
   loresuso's corner of the internet
-github_username:  loresuso
-linkedin_username: lorenzosusini
 
 # Build settings
-theme: minima
+remote_theme: jekyll/minima
+minima:
+  skin: dark
+  social_links:
+    - title: loresuso on GitHub
+      icon: github
+      url: "https://github.com/loresuso"
+    - title: loresuso on LinkedIn
+      icon: linkedin
+      url: "https://linkedin.com/in/lorenzosusini/"
+  google_analytics: G-QRY479P4Y1
+
 plugins:
   - jekyll-feed
-
-minima:
-  skin: dark    
+  - jekyll-remote-theme 
 
 # Exclude from processing.
 # The following items will not be processed, by default.
