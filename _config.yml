@@ -23,11 +23,15 @@ email: susinilorenzo1@gmail.com
 description: >- # this means to ignore newlines unti
   loresuso's corner of the internet
 github_username:  loresuso
+linkedin_username: lorenzosusini
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+minima:
+  skin: dark    
 
 # Exclude from processing.
 # The following items will not be processed, by default.

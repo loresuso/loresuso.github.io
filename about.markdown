@@ -6,4 +6,4 @@ permalink: /about/
 
 Just another guy interested in security and much more.
 
-Threat Research @ Sysig
+Threat Research @ Sysdig
