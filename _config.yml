@@ -35,7 +35,8 @@ minima:
     - title: loresuso on LinkedIn
       icon: linkedin
       url: "https://linkedin.com/in/lorenzosusini/"
-  google_analytics: G-QRY479P4Y1
+  
+google_analytics: G-QRY479P4Y1
 
 plugins:
   - jekyll-feed
