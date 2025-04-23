@@ -39,8 +39,12 @@ minima:
 google_analytics: G-QRY479P4Y1
 
 plugins:
-  - jekyll-feed
   - jekyll-remote-theme 
+  - jekill-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
