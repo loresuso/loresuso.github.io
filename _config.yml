@@ -22,7 +22,7 @@ title: loresuso's corner of the internet
 email: susinilorenzo1@gmail.com
 url: "https://loresuso.github.io"
 description: >- # this means to ignore newlines unti
-  loresuso's corner of the internet
+  A personal blog about security, programming, and technology.
 
 # Build settings
 remote_theme: jekyll/minima
