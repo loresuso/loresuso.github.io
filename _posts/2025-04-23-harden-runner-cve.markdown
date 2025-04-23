@@ -2,7 +2,7 @@
 layout: post
 title:  "Is harden-runner really securing your GitHub workflows?"
 date:   2025-04-23 14:39:49 +0000
-categories: supply chain security, GitHub Actions
+categories: github-action-security
 ---
 
 What is the best way for a security guy to start a new blog? Probably sharing the first CVE that I found! 
@@ -23,7 +23,7 @@ You can read the details about the vulnerable code in the [Sysdig blog post](htt
 
 To protect the agent inside the runner VM, StepSecurity implemented a feature called `disable-sudo`. By default, the `runner` Linux user inside the VM can run any arbitrary command via `sudo` thanks to the configuration in `/etc/sudoers.d/runner` file. The `disable-sudo` policy just limits itself to move the sudoers file for the user in `/tmp`, making it impossible to run `sudo` commands again. So everything is okay right? Nope! We just needed to find a way to escalate privileges in a different ways. How? 
 
-1. Applying my knownledge about GHA. If you are a user of this product, you know that GitHub actions can be of three types: composite, JavaScript and Docker actions.
+1. Applying my knowledge about GHA. If you are a user of this product, you know that GitHub actions can be of three types: composite, JavaScript and Docker actions.
 2. Remebering a good old friend, the [Docker GTFObin](https://gtfobins.github.io/gtfobins/docker/). 
 
 Being part of the Docker group means being root, and of course since the runner must be able to run containers (Docker actions), so we must be inside that group. A quick execution of `id` inside the runner shell confirmed that we are indeed part of it.
