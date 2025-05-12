@@ -2,12 +2,12 @@
 layout: post
 title:  "Is harden-runner really securing your GitHub workflows?"
 date:   2025-04-23 14:39:49 +0000
-categories: github-action-security
+categories: github-actions-security
 ---
 
 What is the best way for a security guy to start a new blog? Probably sharing the first CVE that I found! 
 
-I already published a blog post [here](https://sysdig.com/blog/security-mechanism-bypass-in-harden-runner-github-action/), but I wanted to add some more thoughts about it in my personal blog to just keep record of it and give more context.
+I already published a blog post [here](https://sysdig.com/blog/security-mechanism-bypass-in-harden-runner-github-action/) about the latest [CVE-2025-32955](https://nvd.nist.gov/vuln/detail/CVE-2025-32955) vulnerability, but I wanted to add some more thoughts about it in my personal blog to just keep record of it and give more context.
 
 During the last months I spent some time instructing myself on CI/CD security, especially on GitHub Actions, since I always loved to work in public, open-source repositories. While working on a project to use [Falco](https://falco.org) to gain visibility on GitHub workflows (at the end of the day, GitHub-hosted runners are just Linux machines), I started taking a look around to see how other projects/companies were addressing the problem. 
 
