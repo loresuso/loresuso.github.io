@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Shai Hulud, the second coming."
-date:   2025-11-24 14:39:49 +0000
-categories: supply-chain-security runtime-security npm-security
+title: "Shai Hulud, the second coming"
+date: 2025-11-24 14:39:49 +0000
+categories: [Security, Supply Chain]
+tags: [supply-chain-security, runtime-security, npm-security, malware, shai-hulud]
 ---
 
 Just two months after the first wave, [Shai Hulud struck again](https://www.aikido.dev/blog/shai-hulud-strikes-again-hitting-zapier-ensdomains). This time the damage is even bigger: hundreds of packages from major organizations like Zapier, ENS, AsyncAPI, PostHog, and Postman got compromised. These packages account for 132 million monthly downloads, which really shows the scale of impact these supply chain attacks can have.

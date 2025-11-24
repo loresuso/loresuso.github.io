@@ -1,0 +1,12 @@
+- type: github
+  icon: "fab fa-github"
+  url: "https://github.com/loresuso"
+
+- type: linkedin
+  icon: "fab fa-linkedin"
+  url: "https://linkedin.com/in/lorenzosusini"
+
+- type: email
+  icon: "fas fa-envelope"
+  noblank: true
+

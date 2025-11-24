@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "Is harden-runner really securing your GitHub workflows?"
-date:   2025-04-23 14:39:49 +0000
-categories: github-actions-security
+title: "Is harden-runner really securing your GitHub workflows?"
+date: 2025-04-23 14:39:49 +0000
+categories: [Security, GitHub Actions]
+tags: [github-actions, security, cve, harden-runner, ci-cd]
 ---
 
 What is the best way for a security guy to start a new blog? Probably sharing the first CVE that I found! 
