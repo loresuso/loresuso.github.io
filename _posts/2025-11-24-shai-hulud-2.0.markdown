@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "Shai Hulud, the second coming."
+date:   2025-11-24 14:39:49 +0000
+categories: supply-chain-security runtime-security npm-security
+---
+
+Just two months after the first wave, [Shai Hulud struck again](https://www.aikido.dev/blog/shai-hulud-strikes-again-hitting-zapier-ensdomains). This time the damage is even bigger: hundreds of packages from major organizations like Zapier, ENS, AsyncAPI, PostHog, and Postman got compromised. These packages account for 132 million monthly downloads, which really shows the scale of impact these supply chain attacks can have.
+
+As the Aikido blog mentions, the timing is really notable. The attack happened just days before npm's December 9 deadline to revoke classic tokens. It seems like the attacker wanted one final strike before that security measure kicked in, making this a particularly opportunistic attack. 
+
+This second campaign is also way more aggressive than the first one. The malware now infects up to 100 npm packages per compromised machine (it was 20 before) and includes a destructive failsafe: if it can't authenticate with GitHub or npm, it wipes your entire home directory. The [StepSecurity team analyzed the payload](https://www.stepsecurity.io/blog/sha1-hulud-the-second-coming-zapier-ens-domains-and-other-prominent-npm-packages-compromised) and found it executes a multi-stage attack via `preinstall` scripts. It first installs the Bun runtime through `setup_bun.js`, then executes a heavily obfuscated 10MB+ payload (`bun_environment.js`) that fingerprints the system, dumps environment variables, enumerates cloud secrets from AWS/GCP/Azure, and runs TruffleHog to scan for additional secrets. All stolen data is exfiltrated to newly created public GitHub repositories with the description "Sha1-Hulud: The Second Coming," with over 22,000 such repositories created within hours of the initial attack. 
+
+## Detecting These Attacks with Runtime Security
+
+I recently wrote about this topic on [Datadog Security Labs](https://securitylabs.datadoghq.com/articles/supply-chain-attacks-runtime-security-detection/), and I wanted to share some thoughts about how runtime security can help detect attacks like Shai Hulud. The main idea is that while we can keep adding more preventive security controls, the reality is that sophisticated supply chain attacks will eventually find a way through. One thing we could do is to shift our thinking and add runtime detection capabilities to catch these attacks when they actually execute.
+
+The approach focuses on monitoring anomalous behaviors that supply chain malware exhibits at runtime. Think about what happens when Shai Hulud runs during `preinstall` or `postinstall` scripts: it spawns TruffleHog to scan your filesystem for secrets, creates git repositories to exfiltrate stolen data, attempts to publish malicious packages using your stolen npm tokens, or even tries privilege escalation and container escape attempts. All of these behaviors are detectable if you have the right visibility into what's happening at runtime, and if you are able to determine that such operations are performed in the context of a package installation.
+
+It has to be said that runtime security isn't a silver bullet, but it provides a critical extra layer of defense when preventive measures fail. By monitoring process behavior, network connections, file system access patterns, and other runtime signals, we can spot malicious activity that looks nothing like what a legitimate package should be doing. As these supply chain attacks continue to evolve in sophistication and scale, having runtime observability becomes essential to detect and respond before significant damage occurs.
+
+
